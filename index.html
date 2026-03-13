@@ -277,7 +277,6 @@
 
     .section-body {
       color: var(--text-muted);
-      max-width: 600px;
       font-size: 1rem;
       line-height: 1.8;
     }
@@ -323,10 +322,7 @@
     #holdings {
       border-top: 1px solid var(--border);
       background: #f7f9fc;
-      max-width: 100%;
-      padding: 96px 56px;
     }
-    #holdings > .inner { max-width: 100%; }
 
     .holdings-grid {
       display: grid;
@@ -528,9 +524,6 @@
     #contact { border-top: 1px solid var(--border); }
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
       margin-top: 48px;
     }
 
@@ -558,64 +551,6 @@
     .contact-detail-value {
       font-size: 0.92rem;
       color: var(--text);
-    }
-
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group label {
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      font-weight: 600;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 11px 14px;
-      font-family: var(--font);
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--blue); }
-    .form-group select { appearance: none; cursor: pointer; }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: var(--grey); }
-
-    .form-submit {
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      padding: 13px 32px;
-      font-family: var(--font);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      cursor: pointer;
-      align-self: flex-start;
-      transition: background 0.2s;
-    }
-    .form-submit:hover { background: var(--deep-blue); }
-
-    .form-success {
-      display: none;
-      background: rgba(83,204,66,0.08);
-      border: 1px solid rgba(83,204,66,0.3);
-      padding: 14px 18px;
-      font-size: 0.88rem;
-      color: #2a7a1f;
     }
 
     /* ── FOOTER ── */
@@ -666,11 +601,11 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       section { padding: 64px 24px; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .holdings-grid, .leaders-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 20px; text-align: center; }
-      #filings, #holdings { padding: 64px 24px; }
+
     }
   </style>
 </head>
@@ -732,8 +667,7 @@
   </section>
 
   <!-- HOLDINGS -->
-  <div id="holdings">
-    <div class="inner">
+  <section id="holdings">
       <div class="reveal">
         <p class="section-label">Portfolio</p>
         <h2 class="section-title"><strong>Our Holdings</strong></h2>
@@ -756,8 +690,7 @@
         </div>
 
       </div>
-    </div>
-  </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
@@ -769,55 +702,17 @@
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h3>CNSX Global Markets Inc.</h3>
-        <p>For institutional, media, or investor inquiries regarding the Group or its holdings, please complete the form or reach us directly.</p>
+        <p>For institutional, media, or investor inquiries regarding the Group or its holdings, please reach out directly.</p>
         <div class="contact-detail">
           <div class="contact-detail-label">Head Office</div>
           <div class="contact-detail-value">100 King Street West, Suite 7210<br/>Toronto, ON, M5X 1E1, Canada</div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-label">General Inquiries</div>
-          <div class="contact-detail-value">inquiries@cnsxglobal.com</div>
+          <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88e1e6f9fde1fae1edfbc8ebe6fbf0efe4e7eae9e4a6ebe7e5">[email&#160;protected]</a></div>
         </div>
       </div>
-      <div class="contact-form reveal">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Jane" />
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Smith" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="jane@firm.com" />
-        </div>
-        <div class="form-group">
-          <label for="org">Organization</label>
-          <input type="text" id="org" placeholder="Your firm or company" />
-        </div>
-        <div class="form-group">
-          <label for="inquiry">Nature of Inquiry</label>
-          <select id="inquiry">
-            <option value="" disabled selected>Select one…</option>
-            <option>Investor / Institutional Inquiry</option>
-            <option>Media &amp; Press</option>
-            <option>Document / Filing Request</option>
-            <option>Partnership or Listing</option>
-            <option>General Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Please describe your inquiry…"></textarea>
-        </div>
-        <button class="form-submit" onclick="submitForm()">Submit Inquiry</button>
-        <div class="form-success" id="form-success">
-          Thank you. Your inquiry has been received and a member of our team will be in touch shortly.
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -835,7 +730,7 @@
     </ul>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Nav shadow on scroll
     window.addEventListener('scroll', () => {
       document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
@@ -866,14 +761,6 @@
       wrapper.style.cursor = 'default';
     }
 
-    // Form submit
-    function submitForm() {
-      const email = document.getElementById('email').value;
-      const name = document.getElementById('fname').value;
-      if (!email || !name) { alert('Please fill in at least your name and email.'); return; }
-      document.getElementById('form-success').style.display = 'block';
-      document.querySelector('.form-submit').style.display = 'none';
-    }
   </script>
 </body>
 </html>
